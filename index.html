@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gogo{ 
+    border-style: solid; 
+    border-color: black; 
+    width: 210px; 
+    height: 75px; 
+    cursor: pointer; 
+    padding: 20px; 
+    float: left;
+    margin: 20px;
+    background-color: burlywood;
+    }
+    body{
+    background-color:cadetblue;
+    }
+    .calc{
+        display: inline-block;
+        border-style: solid;
+        cursor: pointer;
+        margin-top: 3px;
+        width:45px;
+        height: 45px;
+    }
+    </style>
+</head>
+
+<body> 
+    <script> 
+        let num1 = '';
+        let num2 = '';
+        let operator = '';
+        let score = 0;
+        function kakoioperator(op){
+            operator = op;
+            document.getElementById('resultParagraph').value = num1 + operator;
+        }
+        function opr(chisl){
+            if (operator === '') {
+            num1 += chisl;
+            } 
+            else {
+            num2 += chisl;
+            }
+            document.getElementById('resultParagraph').value = num1 + operator + num2;
+        }
+        function nuchetam(){
+            let result
+            if(num1 !== '' && num2 !== '' && operator !== ''){
+            if(operator === '+'){
+                result = parseFloat(num1) + parseFloat(num2);
+            }
+            else if(operator === '-'){
+                result = parseFloat(num1) - parseFloat(num2);
+            }
+            else if(operator === '*'){
+                result = parseFloat(num1) * parseFloat(num2);
+            }
+            else if(operator === '/'){
+                result = parseFloat(num1) / parseFloat(num2);
+            }
+        }
+         document.getElementById('resultParagraph').value = result;
+            num1 = '';
+            num2 = ''; 
+            operator = '';
+        }
+        displayResult(result);
+        function z(){ 
+            let n = prompt('Введите число')
+            function fac(n){
+            let i = 1
+            let res = 1
+            while(i<=n){
+                res = i * res
+                i += 1
+            }
+            return res
+        }
+        alert(fac(n))
+        } 
+        function x(){
+            function prost(){
+                let n = prompt('Введите число');
+                let i = 2;
+                while(n % i !== 0){
+                    i += 1;
+                    if(i === n - 1){
+                        alert('Число простое');
+                        return;
+                    }
+                }
+                alert('Число составное');
+            }
+            prost();
+        }
+        function c(){
+            document.write(`<h1>JavaScript Quiz</h1>`)
+            document.write(`<h3>Какое число красивее?</h3>`)
+            document.write(`<input type="radio" name="answer" id="answer1" value="4">44<br>`)
+            document.write(`<input type="radio" name="answer" id="answer2" value="2">2<br>`)
+            document.write(`<input type="radio" name="answer" id="answer3" value="8">8<br>`)
+            document.write(`<input type="radio" name="answer" id="answer4" value="7">7<br>`)
+            document.write(`<input type="submit" id="go" onclick="ponyat()"><br>`)
+            document.write(`<h3>Почему?</h3>`)
+            document.write(`<input type="radio" name="answer" id="answer1" value="Зачем">Зачем<br>`)
+            document.write(`<input type="radio" name="answer" id="answer2" value="Где">Где<br>`)
+            document.write(`<input type="radio" name="answer" id="answer3" value="Понятно">Понятно<br>`)
+            document.write(`<input type="radio" name="answer" id="answer4" value="?">?<br>`)
+            document.write(`<input type="submit" id="go" onclick="ponyat2()">`)
+            document.write(`<h3>Какая группа лучше?</h3>`)
+            document.write(`<input type="radio" name="answer" id="answer1" value="ACDC">AC/DC<br>`)
+            document.write(`<input type="radio" name="answer" id="answer2" value="Lana del rey">Lana del rey<br>`)
+            document.write(`<input type="radio" name="answer" id="answer3" value="Nirvana">Nirvana<br>`)
+            document.write(`<input type="radio" name="answer" id="answer4" value="BTS">BTS<br>`)
+            document.write(`<input type="submit" id="go" onclick="ponyat3()"><br>`)
+            document.write(`<input type="submit" id="go" onclick="resulti()">`)
+
+            
+            }
+            function ponyat(){
+                const chetivibral = document.querySelector('input[name="answer"]:checked');
+                if (chetivibral && chetivibral.value === "7"){
+                    score += 1;
+                }
+            }
+            function ponyat2(){
+                const chetivibral = document.querySelector('input[name="answer"]:checked');
+                if (chetivibral && chetivibral.value === "Зачем"){
+                    score += 1;
+                }
+            }
+            function ponyat3(){
+                const chetivibral = document.querySelector('input[name="answer"]:checked');
+                if (chetivibral && chetivibral.value === "Nirvana"){
+                    score += 1;
+                }
+            }
+            function resulti(){
+                document.write(`<br>Ваш результат: ` + score + ` из 3-х`)
+            }
+
+
+        
+    </script> 
+        <input type="text" id="resultParagraph" value="0" style="width: 136px; height: 50px; font-size: 20px;">
+        <br>
+        <button id="1" onclick="opr(1)" class="calc">1</button>
+        <button id="2" onclick="opr(2)" class="calc">2</button>
+        <button id="3" onclick="opr(3)" class="calc">3</button>
+        <br>
+        <button id="4" onclick="opr(4)" class="calc">4</button>
+        <button id="5" onclick="opr(5)" class="calc">5</button>
+        <button id="6" onclick="opr(6)" class="calc">6</button>
+        <br>
+        <button id="7" onclick="opr(7)" class="calc">7</button>
+        <button id="8" onclick="opr(8)" class="calc">8</button>
+        <button id="9" onclick="opr(9)" class="calc">9</button>
+        <br>
+        <button id="+" onclick="kakoioperator('+'); operator = '+'" class="calc">+</button>
+        <button id="0" onclick="opr(0)" class="calc">0</button>
+        <button id="-" onclick="kakoioperator('-'); operator = '-'" class="calc">-</button>
+        <BR>
+        <button id="/" onclick="kakoioperator('/')" class="calc">/</button>
+        <button id="=" onclick="nuchetam()" class="calc">=</button>
+        <button id="*" onclick="kakoioperator('*')" class="calc">*</button>
+        <br>
+    <p onclick="z()" class="gogo"> Напишите функцию, которая вычисляет факториал числа </p> 
+    <p onclick="x()" class="gogo"> Напишите функцию, которая проверяет, является ли число простым </p> 
+    <p onclick="c()" class="gogo"> Javascript quiz </p>
+</body> 
+</html>
